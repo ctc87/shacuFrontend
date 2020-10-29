@@ -1,0 +1,45 @@
+﻿  <mat-progress-bar *ngIf="loading" mode="query"></mat-progress-bar>
+  <div *ngIf="qrList">
+
+    <div class="left-stuff" [@widthGrow]="state">
+        <button (click)="delete_()" mat-fab color="sec"  class="btn-set delete" >
+            <mat-icon>delete</mat-icon>
+        </button>
+        <button (click)="save()" mat-fab color="sec"   class="btn-set save" >
+            <mat-icon>save</mat-icon>
+        </button>
+        <button (click)="changeState()" mat-fab color="sec"   class="btn-set set">
+            <mat-icon>settings</mat-icon>
+        </button>
+    </div>
+    <table class="table">
+        <thead>
+          <tr >
+              <th *ngFor = "let header of displayedColumns">{{header}}</th>
+              <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr  *ngFor = "let row of qrList"  (click)="clicked($event)">
+            <th scope="row">{{row.id}}</th>
+            <td>{{row.id}}</td>
+            <td>{{row.lat}}</td>
+            <td>
+                <img src="{{row.qr_image}}"/>
+            </td>
+            <td>{{row.published}} </td>
+            <td>{{row.reg_date}}</td>
+            <td>
+                <button (click)="delete_ev($event)" mat-fab color="warn">
+                <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+  </div>
+  
+ <!--  <p>
+    Options selected: {{qr.selectedOptions.selected.length}}
+  </p> -->

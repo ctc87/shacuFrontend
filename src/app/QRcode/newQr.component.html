@@ -1,0 +1,94 @@
+﻿
+
+<div class="container-fluid" style="text-align:center; margin-top: 100px;">
+  <div class="row">
+      <div class="col-md-12">
+        <mat-card class="newQRcard" >  
+
+          <mat-card-content *ngIf="qr_image">  
+            <img src="{{qr_image}}" />
+          </mat-card-content>
+
+          <mat-form-field appearance="outline">
+            <mat-label>QR Location name</mat-label>
+            <input [(ngModel)]="qr_name" matInput placeholder="Placeholder">
+            <mat-icon matSuffix>qr_code</mat-icon>
+            <mat-hint>Name for QR location</mat-hint>
+          </mat-form-field>
+          
+
+          <mat-form-field appearance="outline">
+            <mat-label>Title</mat-label>
+            <input [(ngModel)]="content_name" matInput placeholder="Placeholder">
+            <mat-icon matSuffix>title</mat-icon>
+            <mat-hint>Name foor content</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>lat</mat-label>
+            <input [(ngModel)]="lat" matInput placeholder="Placeholder">
+            <mat-icon matSuffix>location_on</mat-icon>
+            <mat-hint>Latitude of QR</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>long</mat-label>
+            <input [(ngModel)]="long" matInput placeholder="Placeholder">
+            <mat-icon matSuffix>location_on</mat-icon>
+            <mat-hint>Longitude of QR</mat-hint>
+          </mat-form-field>
+          <br/>
+          <mat-form-field style="width: 300px;">
+            <mat-label>Description</mat-label>
+            <textarea matInput
+
+                      [(ngModel)]="description"
+                      cdkTextareaAutosize
+                      #autosize="cdkTextareaAutosize"
+                      cdkAutosizeMinRows="5"
+                      cdkAutosizeMaxRows="10"></textarea>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" style="display: none;">
+            <mat-label>file_type</mat-label>
+            <input [(ngModel)]="file_type" matInput placeholder="Placeholder">
+            <mat-icon matSuffix>location_on</mat-icon>
+            <mat-hint>file_type</mat-hint>
+          </mat-form-field>
+
+          <mat-card-content>  
+              <ul>  
+                  <li *ngFor="let file of files">  
+                      <mat-progress-bar [value]="file.progress"></mat-progress-bar>  
+                      <span id="file-label">  
+                            
+                      </span>  
+                  </li>  
+              </ul>  
+              <p [hidden]="!uploaded">Uploaded correctly</p>
+          </mat-card-content>
+
+          <mat-form-field appearance="fill">
+          <mat-label>Select an option</mat-label>
+          
+          <mat-select [(value)]="file_type">
+            <mat-option>None</mat-option>
+            <mat-option value="image">Image</mat-option>
+            <mat-option value="pdf">PDF</mat-option>
+            <mat-option value="video">Video</mat-option>
+            <mat-option value="sound">Sound</mat-option>
+          </mat-select>
+
+          </mat-form-field>
+          <p>You selected: {{file_type}}</p>  
+          <mat-card-actions>  
+              <button mat-button class="upload" (click)="onClick()" [hidden]="uploaded">  
+                  <mat-icon>file_upload</mat-icon>  
+                  Upload  
+              </button>  
+          </mat-card-actions>  
+      </mat-card>
+      <input type="file" #fileUpload id="fileUpload" name="fileUpload"  accept="*" style="display:none;" />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,117 @@
+@import "../styles.scss";
+@mixin md-icon-size($size: 24px) {
+    font-size: $size;
+    height: $size;
+    width: $size;
+    line-height: $size;
+  }
+
+
+.mat-iconp {
+    @include md-icon-size(15px);
+    color:red;
+}
+
+.messageBox {
+    color:red;
+    background-color: white;
+    position: absolute;
+    right: 36px;
+    width: 36px;
+    height: 36px;
+    margin : 0px !important;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+/*     opacity: 0.9;
+ */    cursor: pointer;
+ 
+    margin-left: 4%;
+}
+.number_messages {
+    font-size: 10px;
+}
+.shacu{
+    color:$btn-color;
+    font-size: 150%;
+}
+ .mat-toolbar.mat-primary {
+    background: $mainColor
+    ;
+    color: #fff;
+} 
+
+.menu-btn {
+    color:white;
+    background-color: $btn-color !important;
+}
+.mat-drawer-container {
+    background-color: #e4e0e4;
+    color: rgba(0,0,0,.87);
+}
+
+.button-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.button-container  >  *{
+    margin-left: 2%;
+}
+
+.container {
+    width: 100%;
+}
+.btween {
+    justify-content: space-between;
+    padding: 0;
+    display: flex;
+    width: 90%;
+
+}
+
+.no-padding {
+    padding: 0;
+}
+    
+.profile-image {
+    width: 36px;
+    border-radius: 50%;
+    position: absolute;
+    right: 36px;
+}
+.view {
+    height: 75.5vh;
+    background-color: #e4e0e4;
+}
+
+
+
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {  
+    .view {
+        height: 72.8vh;
+    }
+}
+ 
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media (min-width: 768px) {  
+    .view {    
+        height: 80vh;
+    }
+ 
+}
+ 
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+ 
+}
+ 
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {  
+    
+}
+ 

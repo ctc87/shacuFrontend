@@ -1,7 +1,39 @@
 ﻿<div class="card">
-    <h4 class="card-header">Login</h4>
-    <div class="card-body">
-        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <h4 class="card-header">
+        <ng-template [ngIf]="logged" >
+            <p>{{loginService.user.itsAdmin}}</p>
+            Logged <ng-template [ngIf]="loginService.user.itsAdmin"> Administrador</ng-template>
+
+            <img    style="float: right;" src="{{loginService.user.picture}}"/>
+        </ng-template>
+        <ng-template [ngIf]="!logged" >
+            Login
+        </ng-template>
+    </h4>
+    <div class="card-body"  *ngIf="logged">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"> <b>Nombre:</b> {{loginService.user.given_name}}</li>
+            <li class="list-group-item"><b>Apellido:</b> {{loginService.user.family_name}}</li>
+            <li class="list-group-item"><b>Email:</b> {{loginService.user.email}}</li>
+            <li class="list-group-item">
+                <button  type="button" class="btn btn-primary" (click) ="logout()">
+                    Logout
+                </button>
+                <button  style="float:right" type="button" class="btn btn-primary" (click) ="openMessages()">
+                    Messages
+                </button>
+            </li>
+        </ul>
+
+    
+    </div>
+
+    
+    <div class="card-body" *ngIf="!logged">
+        <button type="button" class="btn btn-primary" (click) ="login()">
+            Login
+        </button>
+       <!--  <form [formGroup]="form" (ngSubmit)="onSubmit()">
             <div class="form-group">
                 <label for="username">Username</label>
                 <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
@@ -23,6 +55,6 @@
                 </button>
                 <a routerLink="../register" class="btn btn-link">Register</a>
             </div>
-        </form>
+        </form> -->
     </div>
 </div>

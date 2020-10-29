@@ -1,0 +1,57 @@
+@import "../../styles.scss";
+@mixin md-icon-size($size: 24px) {
+  font-size: $size;
+  height: $size;
+  width: $size;
+  line-height: $size;
+}
+
+.example-card {
+
+  background: $mainColor;
+  color: #fff;    
+
+    margin-bottom: 40px;
+    justify-content: center
+  }
+
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+
+  .flexcont { 
+    margin-top: 10%;
+  }
+
+  .icon-mat {
+    width: 100%;
+    display: flex;    
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mat-iconp {
+    @include md-icon-size($width);
+  }
+  .ic {
+    margin:20px;
+    background-color: $btn-color !important;
+  }
+  .new {
+    background-color: darkseagreen;
+  }
+  .delete {
+    background-color: lightcoral;
+  }
+  .modify {
+    background-color: lightsalmon;
+  }
+
+  // Extra small devices (portrait phones, less than 576px)
+  @media (max-width: 575.98px) { 
+    .flexcont { 
+      margin-top: 60px;
+    }
+   }

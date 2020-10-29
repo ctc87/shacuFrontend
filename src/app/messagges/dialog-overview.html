@@ -1,0 +1,21 @@
+<h3 mat-dialog-title>{{data.message_type}}</h3>
+<mat-dialog-content class="mat-typography" style="height:75%;"> 
+        <div class="flex-cont">
+          <div class messaje>
+            {{data.message_user}}  
+          </div>
+        </div>
+
+
+</mat-dialog-content>
+<div mat-dialog-actions>
+
+  <button mat-button [mat-dialog-close]="false" cdkFocusInitial  mat-raised-button	 class="btn-shacu" color="primary" >
+    Continue 
+  </button>   
+
+  <button *ngIf="!data.readed" mat-button [mat-dialog-close]="true" cdkFocusInitial  class="btn-shacu" mat-raised-button style="float: right;"	 color="primary" >
+    Mark as read 
+  </button>   
+</div>
+

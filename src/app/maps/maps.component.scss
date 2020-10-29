@@ -1,0 +1,52 @@
+@import "../../styles.scss";
+
+agm-map {
+    height: 300px;
+}
+
+.pointCard {
+    background-color: $mainColor;
+    color:white
+}
+
+
+.slide {
+    margin: 10px;
+    height: 100%;
+}
+
+
+.flex-cont {
+    display: flex;
+  }
+  
+.just {
+    justify-content: space-between;
+}
+
+.just > * {
+flex-grow: 1;
+}
+
+.color {
+    color:$btn-color;
+}
+
+.data {
+    display: flex;
+    flex-direction: column;
+}
+
+.button-cont {
+    flex-direction: row;
+}
+
+.ic {
+    background-color: $btn-color !important;
+  }
+
+  .cam-btn {
+      position: fixed;
+      left: 5px;
+      top:287px;
+  }

@@ -1,19 +1,26 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { HomeComponent } from './home';
-import { AuthGuard } from './_helpers';
+import { MapsComponent } from './maps';
+import { ProfileComponent } from './profile';
+import { MessagesComponent } from './messagges';
+import { AuthGuard, AdminGuard } from './_helpers';
 
 const accountModule = () => import('./account/account.module').then(x => x.AccountModule);
-const usersModule = () => import('./users/users.module').then(x => x.UsersModule);
+const QRmodule = () => import('./QRcode/QRcode.module').then(x => x.QRModule);
+const Contentmodule = () => import('./content/Content.module').then(x => x.ContentModule);
 
 const routes: Routes = [
-    { path: '', component: HomeComponent, canActivate: [AuthGuard] },
-    { path: 'users', loadChildren: usersModule, canActivate: [AuthGuard] },
+    { path: '',  loadChildren: accountModule },
+    { path: 'QR', loadChildren: QRmodule, canActivate: [AuthGuard] },
+    { path: 'Content', loadChildren: Contentmodule, /* canActivate: [AuthGuard] */ },
+    { path: 'maps', component: MapsComponent},
+    { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
+    { path: 'messages', component: MessagesComponent, canActivate: [AuthGuard]},
     { path: 'account', loadChildren: accountModule },
 
     // otherwise redirect to home
-    { path: '**', redirectTo: '' }
+    { path: '**', redirectTo: '/' }
 ];
 
 @NgModule({

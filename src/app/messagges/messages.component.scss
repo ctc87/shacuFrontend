@@ -1,0 +1,107 @@
+@import "../../styles.scss";
+@mixin md-icon-size($size: 24px) {
+  font-size: $size;
+  height: $size;
+  width: $size;
+  line-height: $size;
+}
+
+.example-card {
+
+  background: $mainColor;
+  color: #fff !important;    
+
+    margin-bottom: 40px;
+    justify-content: center;
+  }
+
+  .mat-list-base .mat-subheader {
+    color: #fff !important; 
+    
+    background-color:$btn-color;
+  }
+
+  .mat-list-base .mat-list-item .mat-list-item-content, .mat-list-base .mat-list-option .mat-list-item-content  {
+    justify-content: center;
+  }
+
+  .header-list {
+    margin-top: 10px !important;
+  }
+  .header-list:first-child {
+    margin-top: 0 !important;
+  }
+
+  .item {
+    border-top: solid 2px $btn-color !important;
+    color: $btn-color !important;
+  }
+
+  .item:last-child {
+    border-bottom: solid 2px $btn-color !important;
+  }
+
+  .btn-shacu{
+    background-color: $btn-color !important;
+    color:White !important;
+  }
+  
+  
+  /* 
+  
+
+  .item:nth-child(odd) {
+    border-top: solid 2px $btn-color !important;
+    color: $btn-color !important;
+    
+  }
+
+  .item:nth-child(even) {
+    border-top: solid 2px white !important;
+    color:white !important;
+    
+  } */
+
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+
+  .flexcont { 
+/*     margin-top: 10%;
+ */  }
+
+  .icon-mat {
+    width: 100%;
+    display: flex;    
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mat-iconp {
+    @include md-icon-size($width);
+  }
+  .ic {
+    margin:20px;
+    background-color: $btn-color !important;
+  }
+  .new {
+    background-color: darkseagreen;
+  }
+  .delete {
+    background-color: lightcoral;
+  }
+  .modify {
+    background-color: lightsalmon;
+  }
+
+  .container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  // Extra small devices (portrait phones, less than 576px)
+  @media (max-width: 575.98px) { 
+    .flexcont { 
+/*       margin-top: 60px;
+ */    }
+   }

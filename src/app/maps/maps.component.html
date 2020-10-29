@@ -1,0 +1,107 @@
+﻿<agm-map  
+
+  *ngIf="loaded"
+  [latitude]="lat"
+  [longitude]="lng"
+  [zoom]="zoom"
+  [disableDefaultUI]="false"
+  (mapClick)="mapClicked($event)">
+
+ <agm-marker 
+
+      *ngFor="let m of workflowService.data_list; let i = index"
+      [latitude]="m.lat"
+      [longitude]="m.lon"
+      [label]="m.qr_name[0]"
+      (markerClick)="clickedMarker(i, infowindow)"
+      
+  > 
+      <agm-info-window [disableAutoPan]="false" #infowindow>
+        <h3>{{m.qr_name}}</h3> <strong>Aqui va la descripción el archivo etc</strong>
+      </agm-info-window>
+</agm-marker>
+<!-- 
+<agm-marker 
+*ngFor="let m of a; let i = index"
+(markerClick)="clickedMarker(m.label, i)"
+[latitude]="m.lat"
+[longitude]="m.lng"
+[label]="m.label"
+[markerDraggable]="m.draggable"
+(dragEnd)="markerDragEnd(m, $event)"> 
+<agm-info-window [disableAutoPan]="true">
+  <h1></h1> <strong>info window</strong>
+</agm-info-window>
+</agm-marker> -->
+ 
+ 
+<!--  <agm-marker [latitude]="lat" [longitude]="lng">
+  <agm-info-window>
+    <strong>InfoWindow content</strong>
+  </agm-info-window>
+</agm-marker>  -->
+
+<agm-circle [latitude]="lat" [longitude]="lng" 
+  [strokeColor] ="'black'"
+  [strokeOpacity]= "'1'"
+  [strokeWeight] = "'15'"
+  >
+</agm-circle>
+  
+<agm-circle [latitude]="lat" [longitude]="lng" 
+    [radius]="accuracy"
+    [fillColor]="'red'"
+    >
+</agm-circle>
+
+<agm-direction 
+*ngIf="route"
+[origin]="origin" 
+[destination]="destination"
+[panel]="setPanel()"
+>
+</agm-direction>
+
+</agm-map>
+
+
+<div *ngIf="route" id="directionsPanel">
+  
+  <button class="ic cloud" mat-fab color="primary" (click)="returnList()">
+    <mat-icon >list</mat-icon>
+  </button> 
+</div>
+<ngx-slick-carousel *ngIf="!route" class="carousel" 
+#galleryOne="slick-carousel"
+[config]="slideConfig"
+>
+
+  <div ngxSlickItem *ngFor="let slide of workflowService.data_list" class="slide" >
+    <mat-card class="pointCard">  
+      <b>{{slide.qr_name}}</b>
+      <div class="flex-cont just">
+        <div class="data">
+          <div><span class="color">lat:</span> {{slide.lat}}</div>
+          <div><span class="color">lon:</span> {{slide.lon}}</div>
+          <div><span class="color">{{!slide.expired ? "Time to expire: " : "Expired time ago: "}}</span> {{slide.expiration}}</div>  
+        </div>
+        <div class="flex-cont button-cont">
+          <button class="ic cloud btn-sm" mat-mini-fab color="primary" (click)=openDialog(slide)>
+            <mat-icon class="mat-iconp">place</mat-icon>
+          </button> 
+          <button class="ic cloud btn-sm" mat-mini-fab (click)=openDialog(slide) *ngIf="slide.expired && slide.inRange">
+            <mat-icon class="mat-iconp">cloud_upload</mat-icon>
+          </button> 
+        </div>
+      </div>
+    </mat-card>
+  </div>
+
+</ngx-slick-carousel>
+<button  [@blackState]="blackState" class="ic cloud cam-btn" mat-fab color="primary" (click)="cameraClick()" *ngIf="enable_camera">
+  <mat-icon>camera_alt</mat-icon>
+</button> 
+<button [@greenState]="greenState" class="ic cloud cam-btn" mat-fab color="primary" (click)="cameraClick()" *ngIf="enable_camera">
+  <mat-icon>camera_alt</mat-icon>
+</button> 
+  

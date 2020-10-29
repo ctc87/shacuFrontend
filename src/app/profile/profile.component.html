@@ -1,0 +1,54 @@
+﻿
+<div class="container-fluid flexcont ">  
+  <div class="row" >
+    <div  class="col-md-12 col-lg-4">
+      <mat-card class="example-card">
+          <h1 style="text-align:center">Manage QR code</h1>
+        <div class="icon-mat">
+          <mat-icon class="mat-iconp">qr_code_2</mat-icon>
+        </div>    
+        <mat-card-actions class="icon-mat">
+          <button (click)="newQRcode()" class="ic new" mat-fab  aria-label="Example icon button with a delete icon">
+            <mat-icon>library_add</mat-icon>
+          </button>
+          <button (click)="manageQRcode()" class="ic modify" mat-fab  aria-label="Example icon button with a delete icon">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>  
+    </div>
+
+    <div  class="col-md-12 col-lg-4">
+      <mat-card  class="example-card">
+        <h1 style="text-align:center">Authorize Content</h1>
+        <div class="icon-mat">
+          <mat-icon class="mat-iconp">vpn_key</mat-icon>
+        </div>
+        <mat-card-actions class="icon-mat">
+          <button class="ic new" mat-fab  aria-label="Example icon button with a delete icon">
+            <mat-icon>vpn_key</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>  
+      </div>
+
+
+    <div class="col-md-12 col-lg-4">
+      <mat-card  class="example-card"> 
+        <h1 style="text-align:center">Manage Content</h1>
+        <div class="icon-mat">
+          <mat-icon class="mat-iconp">cloud</mat-icon>
+        </div>
+        <mat-card-actions class="icon-mat">
+          <button  (click)="newContent()" class="ic new" mat-fab  aria-label="Example icon button with a delete icon">
+            <mat-icon>library_add</mat-icon>
+          </button>
+          <button (click)="manageContent()" class="ic modify" mat-fab  aria-label="Example icon button with a delete icon">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+  </div>
+</div>

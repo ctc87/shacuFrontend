@@ -1,0 +1,27 @@
+﻿
+
+<div class="container-fluid" style="text-align:center; margin-top: 100px;">
+  <div class="row">
+      <div class="col-md-12">
+        <mat-card style="margin-top:10px; width: 100%; background-color: rgb(52, 129, 202);">  
+          SEE CONTENT {{qr_id}}
+          <ng-template [ngIf]="loaded" >
+            <h1>Usuario que subió el contenido</h1>
+            email: {{qr_loaded.email}} <br/>
+            nombre: {{qr_loaded.firstname}} <br/>
+
+            <h1>Contenido</h1>
+            ruta: {{qr_loaded.file_path}} <br/>
+            tipo: {{qr_loaded.content_type}} <br/>
+            descripción: {{qr_loaded.content_description}} <br/>
+
+            <button class="ic cloud" mat-fab color="primary" (click)="download(qr_loaded.file_path)">
+              <mat-icon>cloud_download</mat-icon>
+            </button>
+          </ng-template>
+          
+
+        </mat-card>
+    </div>
+  </div>
+</div>

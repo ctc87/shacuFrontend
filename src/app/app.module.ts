@@ -3,33 +3,57 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-// used to create fake backend
-import { fakeBackendProvider } from './_helpers';
+import {BrowserAnimationsModule} from  '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
+
+
+
+
+
+// used to create fake backend
 import { AppRoutingModule } from './app-routing.module';
-import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { AppComponent } from './app.component';
-import { AlertComponent } from './_components';
-import { HomeComponent } from './home';
+import { AlertComponent, Header } from './_components';
+import { MapsComponent, DialogContentDetail } from './maps';
+import { ProfileComponent } from './profile';
+import { MessagesComponent, DialogSeeMessage } from './messagges';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+import { AgmCoreModule } from '@agm/core';
+import { AppMaterialModule } from './app-material/app-material.module';
+import { AgmDirectionModule } from 'agm-direction';   // agm-direction
+
 
 @NgModule({
     imports: [
         BrowserModule,
+        
+        ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+        BrowserAnimationsModule,
+        FormsModule,
         ReactiveFormsModule,
         HttpClientModule,
-        AppRoutingModule
-    ],
+        AppRoutingModule,
+        AppMaterialModule,
+
+        AgmCoreModule.forRoot({
+          apiKey: 'AIzaSyALRka2IF9lWPiVU9DULJ3pHDS4ifWdjYo'
+        }),
+        AgmDirectionModule,
+        ],
     declarations: [
         AppComponent,
+        Header,
         AlertComponent,
-        HomeComponent
+        MapsComponent,
+        DialogContentDetail,
+        ProfileComponent,
+        MessagesComponent,
+        DialogSeeMessage,
     ],
     providers: [
-        { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-        { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-
-        // provider used to create fake backend
-        fakeBackendProvider
+  
     ],
     bootstrap: [AppComponent]
 })

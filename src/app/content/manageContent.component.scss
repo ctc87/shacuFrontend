@@ -1,0 +1,38 @@
+table {
+    width: 100%;
+  }
+
+td > img {
+    width: 20%;
+    margin: 10px;
+}
+
+.delete {
+    background-color: #fce1e7;
+}
+.delete-icon {
+    background-color: white;
+    color:#f44336;
+}
+.left-stuff {
+    position: fixed;
+    margin-left: 10px;
+    left: -146px;
+    bottom: 100px;
+  }
+
+  .btn-set {
+      margin-left: 10px;
+  }
+
+  .delete {
+      background-color: rgb(255, 103, 86);
+  }
+
+  .save {
+    background-color: rgb(174, 248, 184);}
+
+  .set  {
+
+    background-color: rgb(120, 169, 224);
+  }

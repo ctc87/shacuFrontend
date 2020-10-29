@@ -1,0 +1,49 @@
+﻿
+<div class="container-fluid flexcont ">  
+  <div class="row no-gutters" >
+      <div  class="col-12">
+          <mat-list class="list">
+            <h3 matSubheader (click)="showNew = !showNew" class="header-list">
+              New Messages ({{newMessages().length}})
+              <mat-icon matListIcon>mark_email_unread</mat-icon>
+               <mat-icon *ngIf="!showNew && newMessages().length > 0" style="margin-left: auto;" matListIcon>arrow_circle_down</mat-icon>
+              <mat-icon *ngIf="showNew && newMessages().length > 0" style="margin-left: auto;" matListIcon>arrow_circle_up</mat-icon>
+            </h3>
+            <ng-container *ngIf="showNew">
+              <mat-list-item class="item" *ngFor="let msj of newMessages()" [@myAnimation] (click)="openDialog(msj)">
+                <span>
+                  {{msj.message_type}} 
+                </span>
+                <span>
+                {{formatDate(msj.reg_date)}} 
+                </span>
+                <button *ngIf="!msj.readed" mat-button cdkFocusInitial  (click)="buttonReadMessage($event,msj.id)" class="btn-shacu" mat-icon-button	color="primary" >
+                  <mat-icon matListIcon>mark_email_read</mat-icon>
+                </button>  
+              </mat-list-item>
+            </ng-container>
+            <h3 matSubheader (click)="showOld = !showOld" class="header-list">
+              Readed Messages ({{oldMessahes().length}}) 
+              <mat-icon matListIcon>mark_email_read</mat-icon>
+              <mat-icon *ngIf="!showOld && oldMessahes().length > 0" style="margin-left: auto;" matListIcon>arrow_circle_down</mat-icon>
+              <mat-icon *ngIf="showOld && oldMessahes().length > 0" style="margin-left: auto;" matListIcon>arrow_circle_up</mat-icon>
+            </h3>
+            
+            <ng-container *ngIf="showOld">
+              <mat-list-item  class="item" *ngFor="let omsj of oldMessahes()" [@myAnimation]  (click)="openDialog(omsj)"> 
+                <span>
+                  {{omsj.message_type}} 
+                </span>
+                <span>
+                  {{formatDate(omsj.reg_date)}} 
+                </span>
+                <button *ngIf="omsj.readed" mat-button cdkFocusInitial  (click)="buttonUnReadMessage($event,omsj.id)" class="btn-shacu" mat-icon-button	color="primary" >
+                  <mat-icon matListIcon>mark_email_unread</mat-icon>
+                </button>  
+
+              </mat-list-item>
+            </ng-container>
+          </mat-list>
+      </div>
+  </div>
+</div>

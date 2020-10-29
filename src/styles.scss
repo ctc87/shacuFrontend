@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style files */
+$width : 100vw /8;
+$mainColor  : #C6B4C5;
+$btn-color : #854092;
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+a { cursor: pointer }
+.mat-dialog-container {
+    background-color: $mainColor !important;
+    color:white !important;
+}
+.slick-arrow {
+    display: none !important;
+}
+.app-container {
+    min-height: 320px;
+    overflow: hidden;
+}
+
+.btn-delete-user {
+    width: 40px;
+    text-align: center;
+    box-sizing: content-box;
+}
+
+.btn-sm > .mat-fab .mat-button-wrapper {
+    padding:0px;
+}
+.mat-fab .mat-button-wrapper {
+    padding:0px;
+}
+
+
+
+.mat-list-base .mat-list-item .mat-list-item-content, .mat-list-base .mat-list-option .mat-list-item-content {
+    justify-content: space-between !important;
+}

@@ -1,0 +1,19 @@
+<h3 mat-dialog-title>{{data.qr_name}}</h3>
+<mat-dialog-content class="mat-typography">
+   
+        <div class="flex-cont">
+          <div>
+            <b>{{data.qr_name}}</b>
+            <p>p1: {{data.lat}} </p>
+            <p>p2: {{data.lon}} </p>  
+          </div>
+          <div>
+            <button mat-button [mat-dialog-close]="true" cdkFocusInitial class="ic cloud" mat-fab color="primary" >
+              <mat-icon>navigation</mat-icon>
+            </button> 
+          </div>
+        </div>
+
+
+</mat-dialog-content>
+
